@@ -1,1 +1,1 @@
-# Community Games Reviews (CGR)
+# Community Game Reviews (CGR)
