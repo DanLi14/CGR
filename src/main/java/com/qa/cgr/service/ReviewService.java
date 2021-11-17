@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.qa.cgr.domain.Review;
 import com.qa.cgr.dto.ReviewWithGameTitleDTO;
+import com.qa.cgr.exceptions.GameNotFoundException;
+import com.qa.cgr.exceptions.UsernameNotFoundException;
 import com.qa.cgr.repo.ReviewRepo;
 
 @Service
@@ -49,12 +51,12 @@ public class ReviewService {
 
 	// Custom query - read all reviews by username
 	public List<Review> getAllReviewsByUsername(String username) {
-		return this.repo.findAllReviewsByUsername(username).orElseThrow();
+		return this.repo.findAllReviewsByUsername(username).orElseThrow(UsernameNotFoundException::new);
 	}
 
 	// Custom query - read all reviews by game title.
 	public List<ReviewWithGameTitleDTO> getAllReviewsByTitle(String title) {
-		return this.repo.findAllReviewsByGame(title).orElseThrow();
+		return this.repo.findAllReviewsByGame(title).orElseThrow(GameNotFoundException::new);
 	}
 
 	// Update
