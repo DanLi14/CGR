@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
@@ -21,7 +22,7 @@ public class Review {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long reviewId; // review_id
+	private long id; 
 
 	@Column(nullable = false)
 	private String username;
@@ -33,6 +34,9 @@ public class Review {
 
 	@Column()
 	private String review;
+	
+	@ManyToOne 
+	private Game game;
 	
 	// Constructor for Spring
 	public Review(String username, @Min(1) @Max(10) int score, String review) {
