@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import com.qa.cgr.dto.ReviewWithGameTitleDTO;
 import com.qa.cgr.service.ReviewService;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/reviews")
 public class ReviewController {
 
@@ -35,22 +37,15 @@ public class ReviewController {
 	}
 
 	// Read Test only
-	@GetMapping("/getAllTest")
-	public ResponseEntity<List<Review>> getAllTest() {
-		return new ResponseEntity<List<Review>>(this.service.getAllTest(), HttpStatus.OK);
+	@GetMapping("/getAllGames")
+	public ResponseEntity<List<Review>> getAllGames() {
+		return new ResponseEntity<List<Review>>(this.service.getAllGames(), HttpStatus.OK);
 	}
 
 	// Read All DTO
 	@GetMapping("/getAll")
 	public ResponseEntity<List<ReviewWithGameTitleDTO>> getAll() {
 		return new ResponseEntity<List<ReviewWithGameTitleDTO>>(this.service.getAll(), HttpStatus.OK);
-	}
-
-	// Custom query - read all by game title DTO
-	@GetMapping("/getAllReviewsByTitle/{title}")
-	public ResponseEntity<List<Review>> getAllReviewsByTitle(@PathVariable String title) {
-		return new ResponseEntity<List<Review>>(this.service.getAllReviewsByTitle(title),
-				HttpStatus.OK);
 	}
 
 	// Custom query - read all by username
