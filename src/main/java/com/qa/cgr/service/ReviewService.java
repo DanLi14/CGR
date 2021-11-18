@@ -55,7 +55,7 @@ public class ReviewService {
 	}
 
 	// Custom query - read all reviews by game title.
-	public List<ReviewWithGameTitleDTO> getAllReviewsByTitle(String title) {
+	public List<Review> getAllReviewsByTitle(String title) {
 		return this.repo.findAllReviewsByGame(title).orElseThrow(GameNotFoundException::new);
 	}
 
