@@ -29,7 +29,8 @@ public class Game {
 	@Column(nullable = false, unique = true)
 	private String title;
 	
-	@Column()
+	// increase length from default 255
+	@Column(length = 500)
 	private String descript;
 	
 	@Column(nullable = false)
@@ -44,7 +45,8 @@ public class Game {
 	@Column(nullable = false)
 	private boolean nintendo;
 	
-	@Column()
+	// increase length from default 255 for those edge cases where image link is really long.
+	@Column(length = 600)
 	private String image;
 	
 	@JsonIgnore

@@ -32,7 +32,8 @@ public class Review {
 	@Max(10)
 	private int score;
 
-	@Column()
+	// increase length from default 255
+	@Column(length = 1600)
 	private String review;
 	
 	@ManyToOne 
