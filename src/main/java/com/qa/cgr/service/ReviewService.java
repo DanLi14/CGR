@@ -40,7 +40,7 @@ public class ReviewService {
 	}
 
 	// Read All - for testing and MVP purposes only
-	public List<Review> getAllTest() {
+	public List<Review> getAllGames() {
 		return this.repo.findAll();
 	}
 
@@ -52,11 +52,6 @@ public class ReviewService {
 	// Custom query - read all reviews by username
 	public List<Review> getAllReviewsByUsername(String username) {
 		return this.repo.findAllReviewsByUsername(username).orElseThrow(UsernameNotFoundException::new);
-	}
-
-	// Custom query - read all reviews by game title.
-	public List<Review> getAllReviewsByTitle(String title) {
-		return this.repo.findAllReviewsByGame(title).orElseThrow(GameNotFoundException::new);
 	}
 
 	// Update
