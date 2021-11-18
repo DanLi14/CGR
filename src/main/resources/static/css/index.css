@@ -1,0 +1,14 @@
+#image1_background {
+  width: 100;
+  height: 60vh;
+  background-image: url(../images/boukaih-FdyzI_X38Yw-unsplash.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+}
+
+#flex_container_1 {
+  margin-top: 45px;
+}
