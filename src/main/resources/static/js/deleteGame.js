@@ -5,7 +5,7 @@ const gameId = document.querySelector('#gameId');
 const submitBtn = document.querySelector('#submitBtn');
 
 //Function(s)
-const deleteByPenguinId = () => {
+const deleteByGameId = () => {
   fetch(`http://localhost:9002/game/delete/${gameId.value}`, {
     method: 'DELETE',
   }).then((response) => {
@@ -20,4 +20,4 @@ const deleteByPenguinId = () => {
 };
 
 //EventListener(s)
-submitBtn.addEventListener('click', deleteByPenguinId);
+submitBtn.addEventListener('click', deleteByGameId);
