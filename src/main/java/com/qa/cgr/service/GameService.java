@@ -27,8 +27,8 @@ public class GameService {
 	}
 
 	// Update
-	public Game update(Long id, Game game) {
-		Game existing = this.repo.findById(id).get();
+	public Game update(String title, Game game) {
+		Game existing = this.repo.findGameByTitle(title).get();
 		existing.setTitle(game.getTitle());
 		existing.setDescript(game.getDescript());
 		existing.setPc(game.isPc());

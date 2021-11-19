@@ -42,9 +42,9 @@ public class GameController {
 	}
 	
 	// Update
-	@PutMapping("/update/{id}")
-	public ResponseEntity<Game> update(@PathVariable Long id, @RequestBody Game game) {
-		return new ResponseEntity<Game>(this.service.update(id, game), HttpStatus.ACCEPTED);
+	@PutMapping("/update/{title}")
+	public ResponseEntity<Game> update(@PathVariable String title, @RequestBody Game game) {
+		return new ResponseEntity<Game>(this.service.update(title, game), HttpStatus.ACCEPTED);
 	}
 	
 	// Delete
