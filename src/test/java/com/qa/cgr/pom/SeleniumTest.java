@@ -116,7 +116,7 @@ public class SeleniumTest {
 	}
 	
 	@Test
-	void SearchForReviewsByGamePage() {
+	void SearchReviewsByGamePage() {
 		// Arrange
 		String header = "Search reviews by game";
 		HomePage homePage = PageFactory.initElements(driver, HomePage.class);
@@ -129,6 +129,22 @@ public class SeleniumTest {
 
 		// Assert
 		Assertions.assertEquals(header, searchReviewsByGamePage.checkHeader());
+	}
+	
+	@Test
+	void SearchReviewsByUserPage() {
+		// Arrange
+		String header = "Search reviews by user";
+		HomePage homePage = PageFactory.initElements(driver, HomePage.class);
+		SearchReviewsByUserPage searchReviewsByUserPage = PageFactory.initElements(driver, SearchReviewsByUserPage.class);
+
+		// Act
+		driver.get(homePage.URL);
+		homePage.clickReviewNav();
+		homePage.clickSearchReviewsByUser();
+
+		// Assert
+		Assertions.assertEquals(header, searchReviewsByUserPage.checkHeader());
 	}
 
 	@AfterEach

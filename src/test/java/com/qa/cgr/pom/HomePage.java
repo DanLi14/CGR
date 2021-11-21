@@ -36,6 +36,9 @@ public class HomePage {
 	@FindBy(xpath = "/html/body/nav/div/div/ul/li[3]/ul/li[1]/a")
 	private WebElement searchReviewsByGame;
 	
+	@FindBy(xpath = "/html/body/nav/div/div/ul/li[3]/ul/li[2]/a")
+	private WebElement searchReviewsByUser;
+	
 
 	// Methods
 	public String checkContent() {
@@ -73,6 +76,10 @@ public class HomePage {
 	
 	public void clickSearchReviewsByGame() {
 		searchReviewsByGame.click();
+	}
+	
+	public void clickSearchReviewsByUser() {
+		searchReviewsByUser.click();
 	}
 
 }
