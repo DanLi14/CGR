@@ -1,7 +1,9 @@
 package com.qa.cgr.rest;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -67,4 +69,33 @@ public class GameControllerIntegrationTest {
 		// Assertion
 		this.mvc.perform(request).andExpect(checkstatus).andExpect(checkBody);
 	}
+	
+	@Test
+	void testUpdate() throws Exception {
+		// Arrange
+		Game updatedGame = new Game("fifa 22", "FIFA 22 is an association football simulation video game published by Electronic Arts as part of the FIFA series.", true, true, true, true, "http://cdn02.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_FIFA22NintendoSwitchLegacyEdition_image1280w.jpg");
+		String updatedGameAsJSON = this.mapper.writeValueAsString(updatedGame);
+		ResultMatcher checkStatus = status().isAccepted();
+		Game updatedGameSaved = new Game(1l, "fifa 22", "FIFA 22 is an association football simulation video game published by Electronic Arts as part of the FIFA series.", true, true, true, true, "http://cdn02.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_FIFA22NintendoSwitchLegacyEdition_image1280w.jpg");
+		String updatedGameSavedAsJSON = this.mapper.writeValueAsString(updatedGameSaved);
+		
+		//Act
+		RequestBuilder request = put("/game/update/Persona 5").contentType(MediaType.APPLICATION_JSON).content(updatedGameAsJSON);
+		ResultMatcher checkBody = content().json(updatedGameSavedAsJSON);
+		
+		this.mvc.perform(request).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
+	@Test
+	void testDelete() throws Exception {
+		// Arrange
+		ResultMatcher checkStatus = status().isNoContent();
+		
+		// Act
+		RequestBuilder request = delete("/game/delete/1");
+		
+		//Assertion
+		this.mvc.perform(request).andExpect(checkStatus); 
+	}
+	
 }
