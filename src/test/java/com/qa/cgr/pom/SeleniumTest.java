@@ -67,6 +67,22 @@ public class SeleniumTest {
 		Assertions.assertEquals(header, searchForAGamePage.checkHeader());
 	}
 
+	@Test
+	void AddAGamePage() {
+		// Arrange
+		String header = "Add a game to the Library";
+		HomePage homePage = PageFactory.initElements(driver, HomePage.class);
+		AddAGamePage addAGamePage = PageFactory.initElements(driver, AddAGamePage.class);
+
+		// Act
+		driver.get(homePage.URL);
+		homePage.clickGameNav();
+		homePage.clickAddGame();
+
+		// Assert
+		Assertions.assertEquals(header, addAGamePage.checkHeader());
+	}
+
 	@AfterEach
 	void teardown() {
 		driver.close();
