@@ -73,7 +73,7 @@ const calculateAvgReviewScore = (array) => {
   // DOM manipulation
   let formatInput = captialise(gameSearchInputField.value);
   head1.textContent = formatInput;
-  head2.textContent = `Community Game Review Score: ${avgScore}%`;
+  head2.textContent = `Community Game Review Score: ${Math.round(avgScore)}%`;
 
   // Append everything
   divContainer.appendChild(head1);
