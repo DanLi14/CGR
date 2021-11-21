@@ -46,5 +46,33 @@ public class Review {
 		this.score = score;
 		this.review = review;
 	}
+
+	// Constructor for testing w/o id
+	public Review(String username, @Min(1) @Max(10) int score, String review, Game game) {
+		super();
+		this.username = username;
+		this.score = score;
+		this.review = review;
+		this.game = game;
+	}
+	
+	// Constructor for testing w/o id
+		public Review(long id, Game game, String review, @Min(1) @Max(10) int score, String username) {
+			super();
+			this.id = id;
+			this.username = username;
+			this.score = score;
+			this.review = review;
+			this.game = game;
+		}
+	
+	// Constructor for testing with id
+	public Review(long id, String username, @Min(1) @Max(10) int score, String review) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.score = score;
+		this.review = review;
+	}
 	
 }
