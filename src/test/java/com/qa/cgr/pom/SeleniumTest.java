@@ -93,10 +93,26 @@ public class SeleniumTest {
 		// Act
 		driver.get(homePage.URL);
 		homePage.clickGameNav();
-		homePage.clickUpdateGame();;
+		homePage.clickUpdateGame();
 
 		// Assert
 		Assertions.assertEquals(label, updateAGamePage.checkLabel());
+	}
+	
+	@Test
+	void DeleteAGamePage() {
+		// Arrange
+		String header = "Delete a game from the library";
+		HomePage homePage = PageFactory.initElements(driver, HomePage.class);
+		DeleteAGamePage deleteAGamePage = PageFactory.initElements(driver, DeleteAGamePage.class);
+
+		// Act
+		driver.get(homePage.URL);
+		homePage.clickGameNav();
+		homePage.clickDeleteGame();
+
+		// Assert
+		Assertions.assertEquals(header, deleteAGamePage.checkHeader());
 	}
 
 	@AfterEach

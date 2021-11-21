@@ -26,6 +26,9 @@ public class HomePage {
 	
 	@FindBy(xpath = "/html/body/nav/div/div/ul/li[2]/ul/li[4]/a")
 	private WebElement updateAGame;
+	
+	@FindBy(xpath = "/html/body/nav/div/div/ul/li[2]/ul/li[5]/a")
+	private WebElement deleteAGame;
 
 	// Methods
 	public String checkContent() {
@@ -51,6 +54,10 @@ public class HomePage {
 	
 	public void clickUpdateGame() {
 		updateAGame.click();
+	}
+	
+	public void clickDeleteGame() {
+		deleteAGame.click();
 	}
 
 }
