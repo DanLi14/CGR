@@ -82,6 +82,22 @@ public class SeleniumTest {
 		// Assert
 		Assertions.assertEquals(header, addAGamePage.checkHeader());
 	}
+	
+	@Test
+	void UpdateAGamePage() {
+		// Arrange
+		String label = "Existing game";
+		HomePage homePage = PageFactory.initElements(driver, HomePage.class);
+		UpdateAGamePage updateAGamePage = PageFactory.initElements(driver, UpdateAGamePage.class);
+
+		// Act
+		driver.get(homePage.URL);
+		homePage.clickGameNav();
+		homePage.clickUpdateGame();;
+
+		// Assert
+		Assertions.assertEquals(label, updateAGamePage.checkLabel());
+	}
 
 	@AfterEach
 	void teardown() {
