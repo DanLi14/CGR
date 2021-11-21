@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS `game` CASCADE;
+DROP TABLE IF EXISTS `review` CASCADE;
 CREATE TABLE `game`(
     `id` INT NOT NULL AUTO_INCREMENT,
     `title` VARCHAR(80) NOT NULL UNIQUE,
@@ -9,4 +10,15 @@ CREATE TABLE `game`(
     `nintendo` BOOLEAN NOT NULL,
     `image` VARCHAR(600) DEFAULT NULL,
     PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `review` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `fk_game_id` INT,
+    `username` VARCHAR(40) NOT NULL, 
+    `score`INT,
+    `review` VARCHAR(800) NOT NULL, 
+    CHECK (score>=1 AND score<=10),
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`fk_game_id`) REFERENCES game(id)
 );

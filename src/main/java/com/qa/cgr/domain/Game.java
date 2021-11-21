@@ -79,4 +79,11 @@ public class Game {
 		this.nintendo = nintendo;
 		this.image = image;
 	}
+	
+	// Constructor for testing - id only
+	public Game(long id) {
+		super();
+		this.id = id;
+	}
+	
 }
