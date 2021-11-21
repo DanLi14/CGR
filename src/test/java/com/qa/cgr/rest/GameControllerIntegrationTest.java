@@ -1,8 +1,11 @@
 package com.qa.cgr.rest;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +50,21 @@ public class GameControllerIntegrationTest {
 		ResultMatcher checkBody = content().json(newGameSavedAsJSON);
 		
 		//Assertion
+		this.mvc.perform(request).andExpect(checkstatus).andExpect(checkBody);
+	}
+	
+	@Test
+	void testReadAll() throws Exception {
+		// Arrange
+		Game existingGame = new Game(1l, "Persona 5", "Persona 5 is a 2016 role-playing video game developed by Atlus. It is the sixth installment in the Persona series, which is part of the larger Megami Tensei franchise.", false, true, false, false, "https://www.nme.com/wp-content/uploads/2021/07/Persona-5-Royal-Best-PS4-Games@2000x1270-696x442.jpg");
+		String existingGameAsJSON = this.mapper.writeValueAsString(List.of(existingGame));
+		ResultMatcher checkstatus = status().isOk();
+		
+		// Act
+		RequestBuilder request = get("/game/getAll");
+		ResultMatcher checkBody = content().json(existingGameAsJSON);
+		
+		// Assertion
 		this.mvc.perform(request).andExpect(checkstatus).andExpect(checkBody);
 	}
 }
