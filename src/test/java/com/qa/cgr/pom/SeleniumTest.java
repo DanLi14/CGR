@@ -19,12 +19,7 @@ public class SeleniumTest {
 		this.driver = new ChromeDriver(); // our WebDriver is being specific as a chrome driver.
 		this.driver.manage().window().setSize(new Dimension(1366, 768));
 	}
-	
-	@Test
-	void test() {
-		Assertions.assertEquals(1, 1);
-	}
-	
+		
 	@Test
 	void Homepage() {
 		// Arrange
@@ -37,6 +32,22 @@ public class SeleniumTest {
 		// Assertion
 		Assertions.assertTrue(homePage.checkContent().contains(Homecontent));
 		
+	}
+	
+	@Test
+	void ViewAllGamesPage() {
+		// Arrange
+		String header = "Game Library";
+		HomePage homePage = PageFactory.initElements(driver, HomePage.class);
+		ViewAllGamesPage viewAllGamesPage = PageFactory.initElements(driver, ViewAllGamesPage.class);
+		
+		// Act
+		driver.get(homePage.URL);
+		homePage.clickGameNav();
+		homePage.clickViewAllGames();
+		
+		// Assert
+		Assertions.assertEquals(header, viewAllGamesPage.checkHeader());
 	}
 	
 	@AfterEach
