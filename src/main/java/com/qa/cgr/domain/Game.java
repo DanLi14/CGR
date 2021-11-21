@@ -65,5 +65,18 @@ public class Game {
 		this.nintendo = nintendo;
 		this.image = image;
 	}
-	
+
+	// Constructor for testing
+	public Game(long id, String title, String descript, boolean pc, boolean playstation, boolean xbox, boolean nintendo,
+			String image) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.descript = descript;
+		this.pc = pc;
+		this.playstation = playstation;
+		this.xbox = xbox;
+		this.nintendo = nintendo;
+		this.image = image;
+	}
 }
