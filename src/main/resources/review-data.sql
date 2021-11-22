@@ -1,0 +1,2 @@
+INSERT INTO `game` (title, descript, pc, playstation, xbox, nintendo, image) VALUES ('Persona 5', 'Persona 5 is a 2016 role-playing video game developed by Atlus. It is the sixth installment in the Persona series, which is part of the larger Megami Tensei franchise.', false, true, false, false, 'https://www.nme.com/wp-content/uploads/2021/07/Persona-5-Royal-Best-PS4-Games@2000x1270-696x442.jpg');
+INSERT INTO `review` (fk_game_id, username, score, review) VALUES (1, 'Zack', 10, 'I really did not think I would like this game, but I am super happy I gave it a chance');
