@@ -56,7 +56,7 @@ public class Review {
 		this.game = game;
 	}
 	
-	// Constructor for testing w/o id
+	// Constructor for testing with id
 		public Review(long id, Game game, String review, @Min(1) @Max(10) int score, String username) {
 			super();
 			this.id = id;

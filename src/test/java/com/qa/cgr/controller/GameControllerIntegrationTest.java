@@ -1,4 +1,4 @@
-package com.qa.cgr.rest;
+package com.qa.cgr.controller;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;

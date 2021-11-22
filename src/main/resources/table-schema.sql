@@ -13,11 +13,11 @@ CREATE TABLE `game`(
 );
 
 CREATE TABLE `review` (
-    `id` INT NOT NULL AUTO_INCREMENT,
-    `fk_game_id` INT,
+    `id` INT AUTO_INCREMENT,
     `username` VARCHAR(40) NOT NULL, 
     `score`INT,
     `review` VARCHAR(800) NOT NULL, 
+    `fk_game_id` INT,
     CHECK (score>=1 AND score<=10),
     PRIMARY KEY (`id`),
     FOREIGN KEY (`fk_game_id`) REFERENCES game(id)

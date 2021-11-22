@@ -1,4 +1,4 @@
-package com.qa.cgr.rest;
+package com.qa.cgr.controller;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -43,14 +43,17 @@ public class ReviewControllerIntegrationTest {
 	@Test
 	void testCreate() throws Exception {
 		// Arrange
-		Game existingGame = new Game(1l, "Persona 5", "Persona 5 is a 2016 role-playing video game developed by Atlus. It is the sixth installment in the Persona series, which is part of the larger Megami Tensei franchise.", false, true, false, false, "https://www.nme.com/wp-content/uploads/2021/07/Persona-5-Royal-Best-PS4-Games@2000x1270-696x442.jpg");
-		Review newReview = new Review(2l, existingGame, "This game stole my heart", 8, "Kelvin");
+//		Game existingGame = new Game(1l, "Persona 5", "Persona 5 is a 2016 role-playing video game developed by Atlus. It is the sixth installment in the Persona series, which is part of the larger Megami Tensei franchise.", false, true, false, false, "https://www.nme.com/wp-content/uploads/2021/07/Persona-5-Royal-Best-PS4-Games@2000x1270-696x442.jpg");
+		Game idOnlyGame = new Game(1l);
+		Review newReview = new Review("Kelvin", 8, "This game stole my heart", idOnlyGame);
+		
 		String newReviewAsJSON = this.mapper.writeValueAsString(newReview);
 		ResultMatcher checkstatus = status().isCreated();
-		Review newReviewSaved = new Review(2l, "This game stole my heart", 8, "Kelvin");
+		Review newReviewSaved = new Review(2l, "Kelvin", 8, "This game stole my heart", idOnlyGame);
 		String newReviewSavedAsJSON = this.mapper.writeValueAsString(newReviewSaved);
 		
 		// Act
+		System.out.println(newReview);
 		RequestBuilder request = post("/reviews/create").contentType(MediaType.APPLICATION_JSON).content(newReviewAsJSON);
 		ResultMatcher checkBody = content().json(newReviewSavedAsJSON);
 		

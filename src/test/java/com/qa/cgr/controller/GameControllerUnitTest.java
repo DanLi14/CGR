@@ -1,4 +1,4 @@
-package com.qa.cgr.rest;
+package com.qa.cgr.controller;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -11,6 +11,8 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -22,12 +24,12 @@ import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.ResultMatcher;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.qa.cgr.controller.GameController;
 import com.qa.cgr.domain.Game;
 import com.qa.cgr.service.GameService;
 
-@RunWith(SpringRunner.class)
 @WebMvcTest
-public class GameControllerUnitTest {
+class GameControllerUnitTest {
 	
 	@Autowired // tells spring to inject in the mockmvc object
 	private MockMvc mvc; // library that performs the requests
