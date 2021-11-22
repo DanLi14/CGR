@@ -37,9 +37,11 @@ Recommended browser for use, development and testing https://www.google.co.uk/ch
 1. Git clone this repository into your local machine within your preferred location.
 2. Configure the application.properties file (found within src/main/resources), setting spring.profiles.active to prod or test as appropriate.  
 3. If using spring.profiles.active=prod, make sure to configure application-prod.properties with the relevant url, username and password which matches your mySQL credentials.
-4. Right-click on the root folder, select "Run As" and then "Spring Boot App" to launch the back-end application or server. 
-5. Within your IDE, preferably visual studio code, navigate to src/main/resources/static and with the index.html file selected, copy and paste the location within your browser, alternatively and if available, click on "Go Live" within visual studio code whilst on the index.html file.    
-6. Within the browser, click on Games in the navbar and navigate to "Add a game" to get started.    
+4. If running from Eclipse - right-click on the root folder, select "Run As" and then "Spring Boot App" to launch the back-end application or server. 
+5. Alternatively, run as jar file by locating the file CGR-0.0.1-SNAPSHOT.jar in the root folder and running the command: java -jar CGR-0.0.1-SNAPSHOT.jar in your command line interface or CLI. 
+6. Within your IDE, preferably visual studio code, navigate to src/main/resources/static and with the index.html file selected, copy and paste the location within your browser, alternatively and if available, click on "Go Live" within visual studio code whilst on the index.html file.    
+7. Within the browser, click on Games in the navbar and navigate to "Add a game" to get started. 
+8. Once your game has been created, you will be able to add a review and have full access to the CRUD functionality associated with both game and review entities.   
 
 ## Running the tests
 
