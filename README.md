@@ -1,6 +1,9 @@
 # Community Game Reviews (CGR)
 Community Game Reviews is a full stack web application where users can perform CRUD functionality with respect to games and reviews. In other words, CGR is a community managed review aggregator, with the aim of letting only the community decide what score a game should receive. 
 
+### Note to developers
+The branch "newtestchanges" has some preliminary debugging fixes associated with the reviewControllerIntegrationTest file and the GameControllerUnitTest. This branch has not been merged to dev or main as these changes are only preliminary and therefore do not quite work as intended, and can cause the other tests to either not boot up or fail altogether. I would therefore recommend debugging any failing tests via a branch off main. 
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
